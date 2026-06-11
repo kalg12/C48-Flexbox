@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="./menu.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="menu">
+        <div class="logo">⚽ Mundial 2026</div>
+
+        <button class="hamburger" id="hamburger">☰</button>
+
+        <ul class="menu-list" id="menuList">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Calendario</a></li>
+          <li><a href="#">Equipos</a></li>
+          <li><a href="#">Grupos</a></li>
+          <li><a href="#">Estadios</a></li>
+          <li><a href="#">Resultados</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="balls-container"></div>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menuList = document.getElementById("menuList");
+      const ballsContainer = document.getElementById("balls-container");
+
+      hamburger.addEventListener("click", () => {
+        menuList.classList.toggle("active");
+
+        if (menuList.classList.contains("active")) {
+          hamburger.textContent = "✖";
+          createBalls();
+        } else {
+          hamburger.textContent = "☰";
+        }
+      });
+
+      function createBalls() {
+        for (let i = 0; i < 25; i++) {
+          const ball = document.createElement("span");
+          ball.classList.add("ball");
+          ball.textContent = "⚽";
+
+          ball.style.left = Math.random() * 100 + "vw";
+          ball.style.animationDelay = Math.random() * 0.5 + "s";
+          ball.style.fontSize = Math.random() * 20 + 20 + "px";
+
+          ballsContainer.appendChild(ball);
+
+          setTimeout(() => {
+            ball.remove();
+          }, 2200);
+        }
+      }
+    </script>
+  </body>
+</html>

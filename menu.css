@@ -1,0 +1,133 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+/* Encabezado */
+.header {
+  background: linear-gradient(90deg, #006847, #ffffff, #ce1126);
+  padding: 15px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Menú principal */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111;
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111;
+  z-index: 1001;
+}
+
+/* Lista del menú en escritorio */
+.menu-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.menu-list a:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Contenedor de balones */
+#balls-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* Balones animados */
+.ball {
+  position: absolute;
+  font-size: 28px;
+  animation: fallBall 1.8s linear forwards;
+}
+
+@keyframes fallBall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive celular */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu-list {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100vh;
+    background-color: #111;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transition: right 0.4s ease;
+    z-index: 1000;
+  }
+
+  .menu-list.active {
+    right: 0;
+  }
+
+  .menu-list a {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .menu-list a:hover {
+    background-color: #fff;
+    color: #111;
+  }
+}

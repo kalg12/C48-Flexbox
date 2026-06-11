@@ -1,3 +1,16 @@
 body {
   background-color: bisque;
 }
+
+.Mundial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Mundial-Dos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
